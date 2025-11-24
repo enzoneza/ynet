@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="YTP.MacUI.App">
+  <Application.Styles>
+    <FluentTheme />
+    <!-- App-specific styles -->
+    <Style Selector="Button.primary">
+      <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Padding" Value="10,6" />
+      <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style Selector="TextBlock.subtle">
+      <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
+    </Style>
+  </Application.Styles>
+
+  <Application.Resources>
+    <!-- Force macOS purple accent for user preference -->
+    <Color x:Key="AccentColor">#AF52DE</Color>
+    <!-- Window background: subtle layered gray to mimic macOS light background -->
+    <LinearGradientBrush x:Key="WindowBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+      <GradientStop Color="#F8F8F9" Offset="0" />
+      <GradientStop Color="#F1F1F5" Offset="1" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="SubtleTextBrush" Color="#6E6E73" />
+    <!-- macOS purple accent -->
+    <SolidColorBrush x:Key="AccentBrush" Color="#AF52DE" />
+  <!-- translucent panel used for the log area (light translucent for good contrast on macOS light background) -->
+  <SolidColorBrush x:Key="TranslucentPanel" Color="#FFFFFF" Opacity="0.86" />
+
+    <!-- stronger foreground for log text so it reads against the panel -->
+    <SolidColorBrush x:Key="LogForegroundBrush" Color="#1C1C1E" />
+
+    <!-- typography: prefer SF Pro where available -->
+    <FontFamily x:Key="AppFontFamily">SF Pro Text, -apple-system, Helvetica Neue, Arial</FontFamily>
+
+    <!-- (Styles moved to Application.Styles) -->
+  </Application.Resources>
+</Application>

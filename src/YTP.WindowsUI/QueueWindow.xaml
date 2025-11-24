@@ -1,0 +1,112 @@
+<ui:FluentWindow x:Class="YTP.WindowsUI.QueueWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:local="clr-namespace:YTP.WindowsUI"
+    xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
+    Title="Queue" Height="500" Width="520" MinWidth="420" WindowStyle="None" AllowsTransparency="False" ShowInTaskbar="False">
+    <Grid Margin="8">
+        <!-- Use a Wpf.Ui virtualizing ItemsControl with Expander-based grouping instead of a TreeView.
+             This removes drag-and-drop/reorder behavior and restores a WpfUI-friendly look. -->
+    <ui:VirtualizingItemsControl x:Name="QueueList" ItemsSource="{Binding}" VirtualizingStackPanel.IsVirtualizing="True" Margin="4"
+                      MaxWidth="{Binding RelativeSource={RelativeSource AncestorType=ui:FluentWindow}, Path=ActualWidth}">
+            <ui:VirtualizingItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                </Style>
+            </ui:VirtualizingItemsControl.ItemContainerStyle>
+            <ui:VirtualizingItemsControl.ItemTemplate>
+                <!-- PlaylistNode template renders as an Expander with item count -->
+                <DataTemplate DataType="{x:Type local:PlaylistNode}">
+                    <!-- Render Expander with explicit Header content bound to Title to avoid ToString fallback -->
+                    <Expander IsExpanded="True" Margin="0,4,0,4" HorizontalContentAlignment="Stretch">
+                        <Expander.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Title}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"
+                                           MaxWidth="{Binding RelativeSource={RelativeSource AncestorType=ui:VirtualizingItemsControl}, Path=ActualWidth}" />
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="8,0,0,0">
+                                    <TextBlock Text=" (" Foreground="Gray" />
+                                    <TextBlock Text="{Binding Items.Count}" Foreground="Gray" />
+                                    <TextBlock Text=")" Foreground="Gray" />
+                                </StackPanel>
+                            </Grid>
+                        </Expander.Header>
+                        <Border HorizontalAlignment="Stretch">
+                            <ItemsControl ItemsSource="{Binding Items}" HorizontalAlignment="Stretch"
+                                          MaxWidth="{Binding RelativeSource={RelativeSource AncestorType=ui:FluentWindow}, Path=ActualWidth}" Margin="4,2,4,4">
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type local:QueueItemNode}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                            <Grid Grid.Row="0" Margin="0,6,0,6" HorizontalAlignment="Stretch" ToolTip="{Binding DisplayTitle}" Focusable="True" PreviewMouseLeftButtonDown="Item_PreviewMouseLeftButtonDown">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- Number badge on the left -->
+                                            <Border Grid.Column="0" Width="30" Height="30" CornerRadius="15" Background="{DynamicResource AccentColorBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,8,0">
+                                                <TextBlock Text="{Binding Index}" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" />
+                                            </Border>
+
+                                            <!-- Title / subtitle area -->
+                                            <!-- Use Grid so TextBlock receives the available width and can trim correctly -->
+                                            <Grid Grid.Column="1" HorizontalAlignment="Stretch">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Grid.Row="0" Text="{Binding DisplayTitle}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" FontSize="13" HorizontalAlignment="Stretch"
+                                                           MaxWidth="{Binding RelativeSource={RelativeSource AncestorType=ui:VirtualizingItemsControl}, Path=ActualWidth}" />
+                                                <TextBlock Grid.Row="1" Text="{Binding Subtitle}" FontSize="11" Foreground="Gray" TextTrimming="CharacterEllipsis" HorizontalAlignment="Stretch" />
+                                            </Grid>
+
+                                            <!-- Right-edge actions -->
+                                            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0,0,0">
+                                                <Button Width="26" Height="24" Margin="2" Padding="0" ToolTip="Pause/Resume" Click="Pause_Click">
+                                                    <ui:SymbolIcon Symbol="{Binding IconSymbol}" />
+                                                </Button>
+                                                <Button Width="26" Height="24" Margin="2" Padding="0" ToolTip="Remove" Click="Remove_Click">
+                                                    <ui:SymbolIcon Symbol="SubtractCircle20" />
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                        <!-- subtle divider -->
+                                        <Border Grid.Row="1" Height="1" Background="{DynamicResource DividerBrush}" Margin="0,6,0,0" />
+                                            <!-- context menu for item actions: provide helpful external actions here (open/copy/show) -->
+                                        <Grid.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Header="Pause / Resume" Click="Pause_Click" />
+                                                <MenuItem Header="Remove" Click="Remove_Click" />
+                                                <Separator />
+                                                <MenuItem Header="Open in YouTube Music" Click="OpenInBrowser_Click" />
+                                                <MenuItem Header="Copy YouTube Music link" Click="CopyLink_Click" />
+                                                <Separator />
+                                                <MenuItem Header="Show output folder" Click="ShowInExplorer_Click" />
+                                            </ContextMenu>
+                                        </Grid.ContextMenu>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Border>
+                    </Expander>
+                </DataTemplate>
+            </ui:VirtualizingItemsControl.ItemTemplate>
+        </ui:VirtualizingItemsControl>
+    </Grid>
+</ui:FluentWindow>
